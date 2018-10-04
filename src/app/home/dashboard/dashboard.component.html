@@ -3,3 +3,27 @@
 </p>
 <button (click)="mybutton()">submit</button>
 <button (click)="getvalue()">submit2</button>-->
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-4" *ngFor="let item of data  | paginate : { itemsPerPage:15, currentPage:current_page, totalItems:total }">
+
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <div *ngIf="item.category_name">
+            <a type="button" class="btn btn-sm btn-outline-secondary"> {{item.category_name}}</a>
+          </div>
+          <div *ngIf="item.sub_category_name">
+            <a type="button" class="btn btn-sm btn-outline-secondary">{{item.sub_category_name}}</a>
+          </div>
+          <div *ngIf="item.child_category_name">
+            <a type="button" class="btn btn-sm btn-outline-secondary">{{item.child_category_name}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <pagination-controls (pageChange)="current_page = categoryPage($event)" maxSize="15" directionLinks="true" autohide="true">
+    </pagination-controls>
+  </div>
+</div>

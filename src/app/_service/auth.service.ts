@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { appConfig } from '../app.config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  base_url = 'http://localhost/angularapi/auth/'; 
   companyCount:string ='false';
   constructor(private _http: HttpClient) { }
 
@@ -16,7 +16,7 @@ export class AuthService {
         'No-Auth': 'True'
       })
     }
-    return this._http.post<iflogin>(this.base_url + "signup", fromdata,loginHeaders);
+    return this._http.post<iflogin>(appConfig.apiUrl + "signup", fromdata,loginHeaders);
   }
 
   login(fromdata): Observable<iflogin> {
@@ -25,11 +25,11 @@ export class AuthService {
         'No-Auth': 'True'
       })
     }
-    return this._http.post<iflogin>(this.base_url + "login", fromdata,loginHeaders);
+    return this._http.post<iflogin>(appConfig.apiUrl + "login", fromdata,loginHeaders);
   }
 
   isValidTokenPage(){
-    return this._http.get<iflogin>(this.base_url + "isvalidPage").subscribe(
+    return this._http.get<iflogin>(appConfig.apiUrl + "isvalidPage").subscribe(
       myvalue => {
         localStorage.setItem('token',myvalue.token);
       }
@@ -39,11 +39,11 @@ export class AuthService {
 
 
   getDashboardRecord() {
-    return this._http.get<iflogin>(this.base_url + "dashboard");    
+    return this._http.get<iflogin>(appConfig.apiUrl + "dashboard");    
   }
 
   isValidToken(){
-    return this._http.get<iflogin>(this.base_url + "dashboard").subscribe(
+    return this._http.get<iflogin>(appConfig.apiUrl + "dashboard").subscribe(
       rset => this.companyCount = rset.status
     );
   }

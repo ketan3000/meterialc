@@ -8,17 +8,21 @@ import { ProductService } from '../../_service/product.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  data:string[]=[];
+  current_page:number;
+  total:number;
   constructor(private authservice:AuthService,private productServ:ProductService) { }
-  base_url = "https://price-api.datayuge.com/api/v1/compare/list/categories?page=1";
+ 
   ngOnInit() {
     this.authservice.isValidTokenPage();
-    this.categoryPage(this.base_url);
+    this.categoryPage(1);    
   }
-
-  categoryPage(pageURL:string){
-    this.productServ.getAllCategories(pageURL)
-    .subscribe(data=>{
-      console.log(data);
+  categoryPage(page:number){
+    this.productServ.getAllCategories(page)
+    .subscribe(result=>{
+      this.data = result.data;
+      this.current_page = result.current_page;
+      this.total = result.total;
     })
   }
 
