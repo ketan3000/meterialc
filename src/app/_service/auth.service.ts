@@ -36,8 +36,6 @@ export class AuthService {
     );
   }
 
-
-
   getDashboardRecord() {
     return this._http.get<iflogin>(appConfig.apiUrl + "dashboard");    
   }
@@ -58,5 +56,6 @@ export class AuthService {
 
 export interface iflogin {
   status: string,
-  token: string
+  token: string,
+  message:string
 }
