@@ -25,6 +25,7 @@ import { ToastrModule } from 'ngx-toastr';
     RouterModule.forRoot(routes), BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
+  exports: [RouterModule],
   providers: [AuthGuard,{
     provide : HTTP_INTERCEPTORS,
     useClass : AuthInterceptor,
