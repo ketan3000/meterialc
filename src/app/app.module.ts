@@ -12,6 +12,9 @@ import { IndexModule } from './index/index.module';
 import { AuthGuard } from './authguard/auth.guard';
 import { AuthInterceptor } from './_service/auth-interceptor';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,IndexComponent,HomeComponent,NoPageComponent
@@ -19,8 +22,10 @@ import { AuthInterceptor } from './_service/auth-interceptor';
   imports: [
     HomeModule,IndexModule,
     BrowserModule,HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes), BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
+  exports: [RouterModule],
   providers: [AuthGuard,{
     provide : HTTP_INTERCEPTORS,
     useClass : AuthInterceptor,
