@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../_service/auth.service';
-
+import { ToastrService } from 'ngx-toastr';
+import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -9,7 +10,7 @@ import { AuthService } from '../../_service/auth.service';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private authservice:AuthService) { }
+  constructor(private _route: Router,private authservice:AuthService ,private toastrService: ToastrService) { }
 
   ngOnInit() {
   }
@@ -18,7 +19,13 @@ export class SignupComponent implements OnInit {
     
     this.authservice.signup(formData.value)
     .subscribe(myvalue =>{
-            
+      if(myvalue.status){
+        this.toastrService.success(myvalue.message);
+        this._route.navigate(['/login']); 
+      }else{
+        this.toastrService.error(myvalue.message);
+      }
+        
     });
   }
 
