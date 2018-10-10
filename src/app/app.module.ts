@@ -23,7 +23,7 @@ import { ToastrModule } from 'ngx-toastr';
     HomeModule,IndexModule,
     BrowserModule,HttpClientModule,
     RouterModule.forRoot(routes), BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot()
   ],
   exports: [RouterModule],
   providers: [AuthGuard,{

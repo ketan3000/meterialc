@@ -9,26 +9,29 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  public loading = false;
   constructor(private authservice: AuthService, private _route: Router, private toastrService: ToastrService) { }
 
   ngOnInit() {
   }
 
   signIn(formData) {
-
+    this.loading = true;    
     this.authservice.login(formData.value)
       .subscribe(myvalue => {
         console.log(myvalue);
         if (myvalue.status) {
+          this.loading = false;
           localStorage.setItem('token', myvalue.token);
           this.toastrService.success('logged in successfully');
           this._route.navigate(['/home']);
         } else {
+          this.loading = false;
           this.toastrService.error(myvalue.message);
         }
       },
         (err) => {
+          this.loading = false;
           this.toastrService.error(err.statusText);
           console.log(err)
           console.log(err.statusText)

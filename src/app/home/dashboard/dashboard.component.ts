@@ -11,6 +11,7 @@ export class DashboardComponent implements OnInit {
   data:string[]=[];
   current_page:number;
   total:number;
+  public loading = false;
   constructor(private authservice:AuthService,private productServ:ProductService) { }
  
   ngOnInit() {
@@ -18,8 +19,10 @@ export class DashboardComponent implements OnInit {
     this.categoryPage(1);    
   }
   categoryPage(page:number){
+    this.loading = true; 
     this.productServ.getAllCategories(page)
     .subscribe(result=>{
+      this.loading = false; 
       this.data = result.data;
       this.current_page = result.current_page;
       this.total = result.total;
