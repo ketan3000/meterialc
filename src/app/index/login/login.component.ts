@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation } from '@angular/core';
 import { AuthService } from '../../_service/auth.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+
 ///https://www.npmjs.com/package/ngx-toastr/v/6.0.0
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+ // encapsulation: ViewEncapsulation.None,
 })
 export class LoginComponent implements OnInit {
   public loading = false;

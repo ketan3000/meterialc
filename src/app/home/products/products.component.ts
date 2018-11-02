@@ -7,7 +7,6 @@ import { ProductService } from '../../_service/product.service';
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css'],
-  encapsulation: ViewEncapsulation.None
 })
 export class ProductsComponent implements OnInit {
   productname: string = ""

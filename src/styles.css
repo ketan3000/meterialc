@@ -3,6 +3,9 @@
     color: red;
     font-style: italic;
 }
+body {
+    background: url("assets/bg_image/bc_image_login.jpg") -31px -254px;   
+ }
 .backdrop {
     z-index: 1999;
     position: fixed !important;
