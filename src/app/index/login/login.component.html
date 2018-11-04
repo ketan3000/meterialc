@@ -27,7 +27,7 @@
             </div>
         </div>      
         <button type="submit" class="btn btn-lg btn-primary btn-block text-uppercase" [disabled]="!signinForm.form.valid">Login</button>        
-        <a class="d-block text-center mt-2 small" href="#">log In</a>     
+        <a class="d-block text-center mt-2 small" [routerLink]="['/signup']">Sign Up</a> 
        <!--https://startbootstrap.com/snippets/registration-page/-->
       </form>
     </div>

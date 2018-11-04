@@ -1,3 +1,14 @@
 .bg-dark {
     background-color:  rgba(52, 58, 64, 0) !important;
 }
+
+
+
+li.nav-item.active {
+    color: #1f1f79;
+    font-weight: 500;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgb(0, 0, 0) !important;
+}

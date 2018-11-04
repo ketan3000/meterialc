@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
   constructor(private authservice: AuthService, private _route: Router, private toastrService: ToastrService) { }
 
   ngOnInit() {
+    document.body.classList.add('bg-img');
+    document.body.classList.remove('bg-img-signup');
   }
 
   signIn(formData) {

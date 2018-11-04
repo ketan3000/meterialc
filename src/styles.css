@@ -1,11 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
 .error {
     color: red;
     font-style: italic;
 }
-body {
-    background: url("assets/bg_image/bc_image_login.jpg") -31px -254px;   
- }
+
+.bg-img {
+    background: url('/assets/bg_image/bg_image_signin.jpg') fixed center center;
+}
+
+.bg-img-signup {
+    background: url('/assets/bg_image/bg_image_signup.jpg') fixed -137px -25px;
+}
+
 .backdrop {
     z-index: 1999;
     position: fixed !important;
@@ -19,7 +26,8 @@ body {
 .spinner-three-bounce {
     width: 70px;
     text-align: center;
-    position: fixed !important;;
+    position: fixed !important;
+    ;
     top: 0;
     left: 0;
     right: 0;

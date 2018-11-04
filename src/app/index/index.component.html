@@ -9,19 +9,21 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-md-center" id="navbarCollapse">
-      <ul class="navbar-nav mr-right navbar-right">
+      <!--<ul class="navbar-nav mr-right navbar-right">
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" [routerLink]="['/signup']">Signup</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link"  [routerLink]="['/login']">Login</a>
         </li>
-      </ul>
+      </ul>-->
 
     </div>
+    <a class="btn btn-primary my-2 my-sm-0" [routerLink]="['/login']">Sign in</a>
   </nav>
 
 </header>
+
 <div class="container">
   <router-outlet></router-outlet>
 </div>

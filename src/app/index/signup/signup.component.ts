@@ -13,6 +13,8 @@ export class SignupComponent implements OnInit {
   constructor(private _route: Router,private authservice:AuthService ,private toastrService: ToastrService) { }
 
   ngOnInit() {
+    document.body.classList.remove('bg-img');
+    document.body.classList.add('bg-img-signup');
   }
 
   onFormSubmit(formData){
