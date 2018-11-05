@@ -8,7 +8,7 @@ export const HomeRoutes: Route[] = [
     {
         path: 'home',
         component: HomeComponent,
-        canActivate:[AuthGuard],
+        //canActivate:[AuthGuard],
         children: [
             { path: '', component: DashboardComponent },
             { path: 'settings', component: SettingsComponent },

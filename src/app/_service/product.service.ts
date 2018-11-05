@@ -14,7 +14,7 @@ export class ProductService {
         'No-Auth': 'True'
       })
     }
-    return this._http.get<interfaceProductCat>(appConfig.price_api + 'list/categories' + '?page=' + page + '&api_key=' + appConfig.apikey);
+    return this._http.get<interfaceProductCat>(appConfig.price_api + 'list/categories' + '?page=' + page + '&api_key=' + appConfig.apikey,loginHeaders);
   }
 
 
@@ -24,7 +24,7 @@ export class ProductService {
         'No-Auth': 'True'
       })
     }
-    return this._http.get<interfaceProductCat>(appConfig.price_api + 'search' + '?page=' + page + '&product=' + productname + '&api_key=' + appConfig.apikey);
+    return this._http.get<interfaceProductCat>(appConfig.price_api + 'search' + '?page=' + page + '&product=' + productname + '&api_key=' + appConfig.apikey,loginHeaders);
   }
 
 

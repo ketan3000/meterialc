@@ -17,7 +17,7 @@ export class ProductsComponent implements OnInit {
   constructor(private activeRoute: ActivatedRoute,private authservice:AuthService,private productServ:ProductService ) { }
   ngOnInit() {
     this.productname = this.activeRoute.snapshot.params['categoryname'];
-    this.authservice.isValidTokenPage();
+    //this.authservice.isValidTokenPage();
     /*this.activeRoute.params.subscribe((params: Params) => {
       this.categoryname = params.categoryname;
     })*/

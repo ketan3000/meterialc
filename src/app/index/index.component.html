@@ -10,8 +10,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse align-items-center" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-
+      <ul class="navbar-nav" *ngIf="this.router.url === '/'">
         <li class="nav-item" *ngFor="let item of data">
           <span *ngIf="item.is_submenu == 'Y'">
             <li class="nav-item dropdown">
@@ -20,13 +19,13 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <span *ngFor="let itemc of item.children">
-                  <a class="dropdown-item" href="#">{{ itemc.product_name }}</a>
+                  <a class="dropdown-item" [routerLink]="'home/products/'+itemc.product_slug"  >{{ itemc.product_name }}</a>
                 </span>
               </div>
             </li>
           </span>
           <span *ngIf="item.is_submenu == 'N'">
-            <a class="nav-link" href="#">{{item.name}}</a>
+            <a class="nav-link" [routerLink]="'home/products/'+item.slug">{{item.name}}</a>
           </span>
         </li>
       </ul>
