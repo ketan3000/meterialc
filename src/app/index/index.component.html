@@ -1,28 +1,37 @@
+<!--{{data | json}}-->
 <header>
   <!-- Fixed navbar -->
   <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
-    <a class="navbar-brand"  [routerLink]="['/']">
+    <a class="navbar-brand" [routerLink]="['/']">
       <img src="../../assets/bg_image/smart-logo.png">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
       aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-md-center" id="navbarCollapse">
-      <!--<ul class="navbar-nav mr-right navbar-right">
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/signup']">Signup</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link"  [routerLink]="['/login']">Login</a>
-        </li>
-      </ul>-->
+    <div class="collapse navbar-collapse align-items-center" id="navbarNavDropdown">
+      <ul class="navbar-nav">
 
+        <li class="nav-item" *ngFor="let item of data">
+          <span *ngIf="item.is_submenu == 'Y'">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                {{item.name}}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <span *ngFor="let itemc of item.children">
+                  <a class="dropdown-item" href="#">{{ itemc.product_name }}</a>
+                </span>
+              </div>
+            </li>
+          </span>
+          <span *ngIf="item.is_submenu == 'N'">
+            <a class="nav-link" href="#">{{item.name}}</a>
+          </span>
+        </li>
+      </ul>
     </div>
     <a class="btn btn-primary my-2 my-sm-0" [routerLink]="['/login']">Sign in</a>
   </nav>
-
 </header>
-
-
-  <router-outlet></router-outlet>
+<router-outlet></router-outlet>

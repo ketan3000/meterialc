@@ -2,7 +2,14 @@
     background-color:  rgba(52, 58, 64, 0) !important;
 }
 
+.navbar-nav .nav-link{
+    font-size: 13px !important;
+}
 
+.dropdown-item {
+    
+    font-size: 13px !important;
+}
 
 li.nav-item.active {
     color: #1f1f79;

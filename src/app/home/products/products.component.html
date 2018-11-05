@@ -2,12 +2,11 @@
 <div class="album py-5 bg-light">
   <div class="container">
     <div class="row">
-      <div class="col-md-4" *ngFor="let item of data | paginate : { itemsPerPage:50, currentPage:current_page, totalItems:total }">
-       
-        <div class="card mb-3 box-shadow">
-          <div style="max-height: 170px; min-height: 170px;    display: flex;">
-              <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]"
-              style="width: 50%;margin: 0 auto;" src={{item.product_image}}
+      <div class="col-md-4" *ngFor="let item of data | paginate : { itemsPerPage:50, currentPage:current_page, totalItems:total }">       
+        <div class="card mb-3">
+          <div style="max-height: 170px; min-height: 170px;    display: contents;">
+              <img class="card-img-top"
+              style="width: 40%;margin: 0 auto;" src={{item.product_image}}
               data-holder-rendered="true">
           </div>
           <div class="card-body">
