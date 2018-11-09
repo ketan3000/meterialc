@@ -8,11 +8,15 @@ import { NgxLoadingModule } from 'ngx-loading';
 import { RouterModule } from '@angular/router';
 import { IndexRoutes } from './index.router';
 import { LandingComponent } from './landing/landing.component';
+import { ProductsComponent } from './products/products.component';
+import { Ng2PaginationModule } from 'ng2-pagination';
 @NgModule({
   imports: [
-    CommonModule,
+    CommonModule,Ng2PaginationModule,
     FormsModule,NgxLoadingModule.forRoot({}), RouterModule.forChild(IndexRoutes)
   ],
-  declarations: [LoginComponent, SignupComponent, ForgotComponent, LandingComponent],
+  declarations: [LoginComponent, SignupComponent, ForgotComponent, LandingComponent,ProductsComponent],
+  exports: [RouterModule],
+  
 })
 export class IndexModule { }

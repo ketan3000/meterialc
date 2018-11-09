@@ -1,0 +1,33 @@
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of data | paginate : { itemsPerPage:50, currentPage:current_page, totalItems:total }">       
+        <div class="card mb-3">
+          <div style="max-height: 170px; min-height: 170px;    display: contents;">
+              <img class="card-img-top"
+              style="width: 40%;margin: 0 auto;" src={{item.product_image}}
+              data-holder-rendered="true">
+          </div>
+          <div class="card-body">
+            <p class="card-text">{{item.product_title}}</p> 
+            <p class="card-text"><strong>Lower Price Rs.</strong>{{item.product_lowest_price}}</p>           
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View Details</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div>
+              <small class="text-muted">9 mins</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <span style="text-align: center;">
+        <pagination-controls (pageChange)="current_page = allProductDetails($event)" maxSize="8" directionLinks="true" autohide="true">
+          </pagination-controls>
+    </span>
+    
+  </div>
+</div>

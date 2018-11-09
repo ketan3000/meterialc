@@ -5,6 +5,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { LandingComponent } from './landing/landing.component';
 import { AuthGuard } from '../authguard/auth.guard';
+import { ProductsComponent } from './products/products.component';
 export const IndexRoutes: Route[] = [
     {
         path: '',
@@ -12,6 +13,7 @@ export const IndexRoutes: Route[] = [
         children: [
             { path: '', component: LandingComponent },
             { path: 'login', component: LoginComponent },
+            { path: 'products/:categoryname', component: ProductsComponent },
             { path: 'signup', component: SignupComponent },
             { path: 'forgot', component: ForgotComponent }
         ]

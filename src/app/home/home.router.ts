@@ -12,7 +12,7 @@ export const HomeRoutes: Route[] = [
         children: [
             { path: '', component: DashboardComponent },
             { path: 'settings', component: SettingsComponent },
-            { path: 'products/:categoryname', component: ProductsComponent }
+            //{ //path: 'products/:categoryname', component: ProductsComponent }
         ]
     }
 ];
