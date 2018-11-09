@@ -17,16 +17,20 @@ export class ProductsComponent implements OnInit, OnDestroy {
   public loading = false;
   constructor(private activeRoute: ActivatedRoute, private authservice: AuthService, private productServ: ProductService) {
     console.log(activeRoute);
+    activeRoute.params.subscribe(params => {
+      this.productname = params.categoryname;
+      this.allProductDetails(1);
+    });
 
   }
   ngOnInit() {
 
-    console.log("sdf4e444")
-    //this.productname = this.activeRoute.snapshot.params['categoryname'];
+
+    this.productname = this.activeRoute.snapshot.params['categoryname'];
     //this.authservice.isValidTokenPage();
     this.userSubscription = this.activeRoute.params.subscribe((params: Params) => {
       this.productname = params.categoryname;
-    });
+    })
 
 
     this.allProductDetails(1);
