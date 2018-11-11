@@ -20,13 +20,13 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <span *ngFor="let itemc of item.children">
-                  <a class="dropdown-item" [routerLink]="'/products/'+itemc.product_slug"  >{{ itemc.product_name }}</a>
+                  <a class="dropdown-item" routerLinkActive="active" [routerLink]="'/products/'+itemc.product_slug"  >{{ itemc.product_name }}</a>
                 </span>
               </div>
             </li>
           </span>
           <span *ngIf="item.is_submenu == 'N'">
-            <a class="nav-link"  [routerLink]="'/products/'+item.slug">{{item.name}}</a>
+            <a class="nav-link" routerLinkActive="active"  [routerLink]="'/products/'+item.slug">{{item.name}}</a>
           </span>
         </li>
       </ul>

@@ -7,6 +7,7 @@ import { appConfig } from '../app.config';
   providedIn: 'root'
 })
 export class ProductService {
+  fbrand = "";
   constructor(private _http: HttpClient) { }
   getAllCategories(page: number): Observable<interfaceProductCat> {
     let loginHeaders = {
@@ -18,13 +19,16 @@ export class ProductService {
   }
 
 
-  getAllProducts(page: number, productname: string): Observable<interfaceProductCat> {
+  getAllProducts(page: number, productname: string,brand:string): Observable<interfaceProductCat> {
     let loginHeaders = {
       headers: new HttpHeaders({
         'No-Auth': 'True'
       })
     }
-    return this._http.get<interfaceProductCat>(appConfig.price_api + 'search' + '?page=' + page + '&product=' + productname + '&api_key=' + appConfig.apikey,loginHeaders);
+    if(brand){
+      this.fbrand = '&filter=' + brand
+    }
+    return this._http.get<interfaceProductCat>(appConfig.price_api + 'search' + '?page=' + page + '&product=' + productname + '&api_key=' + appConfig.apikey + this.fbrand,loginHeaders);
   }
 
 
@@ -36,6 +40,11 @@ export interface interfaceProductCat {
   total: number;
   meta: {
     items:number;
+    filters:{
+      
+      brand:string[];
+      category:string[];
+    }
   };
 }
 
