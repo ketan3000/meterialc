@@ -1,0 +1,10 @@
+.album {
+    padding-top: 15px !important;
+}
+ul {
+    list-style-type: none;   
+    overflow-y: scroll;
+    max-height: 330px;
+    width: 190px;
+  }
+
