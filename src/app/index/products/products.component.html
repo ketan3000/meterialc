@@ -1,4 +1,5 @@
 <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
+
 <div class="album py-6 bg-light">
   <div class="container">
     <div class="row">
@@ -49,16 +50,9 @@
 
               </div>
               <div class="card-body">
-                <p class="card-text">{{item.product_title}}</p>
+                <div class="card-text">{{item.product_title}}</div>
                 <p class="card-text">
-                  <strong>Lower Price Rs.</strong>{{item.product_lowest_price}}</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View Details</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
+                  <strong> {{item.product_lowest_price | currency: 'INR':true}} </strong>                
               </div>
             </div>
           </div>

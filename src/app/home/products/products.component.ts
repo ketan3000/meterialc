@@ -28,24 +28,9 @@ export class ProductsComponent implements OnInit,OnDestroy {
       this.productname = params.categoryname;
     });
     
-
-    this.allProductDetails(1);
-    
   }
 
-  allProductDetails(page:number){
-
-    this.loading = true; 
-    this.productServ.getAllProducts(page,this.productname)
-    .subscribe(result=>{
-      this.loading = false;
-      this.data = result.data;
-      this.current_page = page;
-      this.total = result.meta.items;
-      //console.log(result);            
-    })
-  }
-
+  
 
   ngOnDestroy(): void {
     this.userSubscription.unsubscribe();

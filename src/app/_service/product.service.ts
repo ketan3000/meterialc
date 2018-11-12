@@ -7,7 +7,7 @@ import { appConfig } from '../app.config';
   providedIn: 'root'
 })
 export class ProductService {
-  fbrand = "";
+  fbrand:string = "";
   constructor(private _http: HttpClient) { }
   getAllCategories(page: number): Observable<interfaceProductCat> {
     let loginHeaders = {
@@ -20,11 +20,16 @@ export class ProductService {
 
 
   getAllProducts(page: number, productname: string,brand:string): Observable<interfaceProductCat> {
+    
     let loginHeaders = {
       headers: new HttpHeaders({
         'No-Auth': 'True'
       })
     }
+   
+   
+    
+    this.fbrand="";
     if(brand){
       this.fbrand = '&filter=' + brand
     }

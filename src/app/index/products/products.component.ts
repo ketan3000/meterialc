@@ -24,6 +24,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
     this.userSubscription = activeRoute.params.subscribe(params => {
       this.productname = params.categoryname;
       this.allProductDetails(1,"");
+      this.filterBrandArr = [];
     });
 
   }
@@ -32,6 +33,8 @@ export class ProductsComponent implements OnInit, OnDestroy {
   }
 
   allProductDetails(page: number,brand:string) {
+   
+    
     this.loading = true;
     this.productServ.getAllProducts(page, this.productname,brand)
       .subscribe(result => {
@@ -53,8 +56,8 @@ export class ProductsComponent implements OnInit, OnDestroy {
       let index = this.filterBrandArr.indexOf(itemArr.filter);
       this.filterBrandArr.splice(index, 1);
     }
-    var brand = this.filterBrandArr.join('|');
-    this.allProductDetails(1,brand);
+    var brand12 = this.filterBrandArr.join('|');
+    this.allProductDetails(1,brand12);
     
 
   }
