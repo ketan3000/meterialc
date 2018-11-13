@@ -10,12 +10,13 @@ import { IndexRoutes } from './index.router';
 import { LandingComponent } from './landing/landing.component';
 import { ProductsComponent } from './products/products.component';
 import { Ng2PaginationModule } from 'ng2-pagination';
+import { DetailsComponent } from './details/details.component';
 @NgModule({
   imports: [
     CommonModule,Ng2PaginationModule,
     FormsModule,NgxLoadingModule.forRoot({}), RouterModule.forChild(IndexRoutes)
   ],
-  declarations: [LoginComponent, SignupComponent, ForgotComponent, LandingComponent,ProductsComponent],
+  declarations: [LoginComponent, SignupComponent, ForgotComponent, LandingComponent,ProductsComponent, DetailsComponent],
   exports: [RouterModule],
   
 })

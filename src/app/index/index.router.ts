@@ -6,16 +6,17 @@ import { ForgotComponent } from './forgot/forgot.component';
 import { LandingComponent } from './landing/landing.component';
 import { AuthGuard } from '../authguard/auth.guard';
 import { ProductsComponent } from './products/products.component';
+import { DetailsComponent } from './details/details.component';
 export const IndexRoutes: Route[] = [
     {
         path: '',
         component: IndexComponent,
         children: [
             { path: '', component: LandingComponent },
-            { path: 'login', component: LoginComponent },
-            { path: 'products/:categoryname', component: ProductsComponent },
+            { path: 'login', component: LoginComponent },            
             { path: 'signup', component: SignupComponent },
-            { path: 'forgot', component: ForgotComponent }
+            { path: 'forgot', component: ForgotComponent },
+            { path: 'details/:productid', component: DetailsComponent },
         ]
     }
 ]
