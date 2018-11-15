@@ -1,5 +1,5 @@
 <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
-
+<!--{{selectBrands | json}} -->
 <div class="album py-6 bg-light">
   <div class="container">
     <div class="row">
@@ -9,29 +9,29 @@
             <div class="table_layout list_view">
               <div class="table_row">
                 <div class="table_cell">
-   
-                    <h6>Brand</h6>
-                    <ul class="checkboxes_list">
-                      <li *ngFor="let brands of brand ; index as i">
-                          <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" [checked]="filterBrandArr.indexOf(brands.filter) >= 0" name="brand"
-                              (click)="selectBrand(brands, $event)" id="customCheck{{i}}">
-                              <label class="custom-control-label" for="customCheck{{i}}">{{brands.name}}</label>
-                          </div>
 
-                      </li>
-                    </ul>
-                 
+                  <h6>Brand</h6>
+                  <ul class="checkboxes_list">
+                    <li *ngFor="let brands of brand ; index as i">
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" [checked]="selectBrands.indexOf(brands.filter) >= 0" name="brand" (click)="selectBrand(brands, $event)"
+                          id="customCheck{{i}}">
+                        <label class="custom-control-label" for="customCheck{{i}}">{{brands.name}}</label>
+                      </div>
+
+                    </li>
+                  </ul>
+
                 </div>
-                <div class="table_cell">                 
-                    <h6>Category</h6>
-                    <ul class="checkboxes_list">
-                      <li *ngFor="let cat of category">
-                        <a [routerLink]="'/products/'+cat.category">
-                          <label for="manufacturer_1">{{cat.name}}</label>
-                        </a>
-                      </li>
-                    </ul>                  
+                <div class="table_cell">
+                  <h6>Category</h6>
+                  <ul class="checkboxes_list">
+                    <li *ngFor="let cat of category">
+                      <a [routerLink]="'/products/'+cat.category">
+                        <label for="manufacturer_1">{{cat.name}}</label>
+                      </a>
+                    </li>
+                  </ul>
                 </div>
 
               </div>
@@ -42,19 +42,31 @@
       <div class="col-lg-10">
         <div class="row">
           <div class="col-md-3" style="padding-right: 2px; padding-left: 2px;" *ngFor="let item of data | paginate : { itemsPerPage:50, currentPage:current_page, totalItems:total }">
+
             <div class="card mb-3">
               <div style="max-height: 170px; min-height: 170px;    display: contents;">
                 <div style="text-align: center;height: 217px;">
-                  <img class="card-img-top" style="max-width: 40%;padding-top: 10px;margin: 0 auto;" src={{item.product_image}} data-holder-rendered="true">
+                  <a class="navbar-brandlflgdlfgldl" (click)="details(item.product_id,item.product_link)">
+                    <img class="card-img-top" style="max-width: 40%;padding-top: 10px;margin: 0 auto;" src={{item.product_image}}
+                      data-holder-rendered="true">
+                  </a>
                 </div>
-
               </div>
               <div class="card-body">
                 <div class="card-text">{{item.product_title}}</div>
-                <p class="card-text">
-                  <strong> {{item.product_lowest_price | currency: 'INR':true}} </strong>                
+                <div class="mb-12"  style="text-align: center">
+                  <div class="row">
+                    <div class="col-4">
+                      {{item.product_rating}}
+                    </div>
+                    <div class="col-8">
+                      <strong> {{item.product_lowest_price | currency: 'INR':true}} </strong>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>

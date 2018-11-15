@@ -17,33 +17,45 @@ export class ProductsComponent implements OnInit, OnDestroy {
   current_page: number;
   total: number;
   userSubscription;
+  selectBrands: string[] = [];
   public loading = false;
-  constructor(private activeRoute: ActivatedRoute, private authservice: AuthService, private productServ: ProductService) {
+  constructor(private activeRoute: ActivatedRoute, private _route: Router, private authservice: AuthService, private productServ: ProductService) {
     this.productname = this.activeRoute.snapshot.params['categoryname'];
 
-    this.userSubscription = activeRoute.params.subscribe(params => {
+    this.selectBrands = JSON.parse(this.activeRoute.snapshot.queryParamMap.get('brands'));
+    activeRoute.queryParams.subscribe(queryParams => {
+      if (queryParams['brands']) {
+        this.selectBrands = JSON.parse(queryParams['brands']);
+      } else {
+        this.selectBrands = [];
+      }
+
+    });
+
+
+
+    this.userSubscription = activeRoute.params.subscribe(params => {    
       this.productname = params.categoryname;
-      this.allProductDetails(1,"");
-      this.filterBrandArr = [];
+      this.allProductDetails(1, this.selectBrands);
     });
 
   }
   ngOnInit() {
 
+
   }
 
-  allProductDetails(page: number,brand:string) {
-   
-    
+  allProductDetails(page: number, brand: string[]) {
+    var brandnew = brand.join('|');
     this.loading = true;
-    this.productServ.getAllProducts(page, this.productname,brand)
+    this.productServ.getAllProducts(page, this.productname, brandnew)
       .subscribe(result => {
         this.loading = false;
         this.data = result.data;
         this.current_page = page;
         this.total = result.meta.items;
         this.brand = result.meta.filters[1].brand;
-        this.category = result.meta.filters[2].category;                  
+        this.category = result.meta.filters[2].category;
       })
   }
 
@@ -51,20 +63,21 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
     //console.log(itemArr,event);
     if (event.target.checked) {
-      this.filterBrandArr.push(itemArr.filter);
+      this.selectBrands.push(itemArr.filter);
     } else {
-      let index = this.filterBrandArr.indexOf(itemArr.filter);
-      this.filterBrandArr.splice(index, 1);
+      let index = this.selectBrands.indexOf(itemArr.filter);
+      this.selectBrands.splice(index, 1);
     }
-    var brand12 = this.filterBrandArr.join('|');
-    this.allProductDetails(1,brand12);
-    
+    this._route.navigate(['/products', this.productname], { queryParams: { brands: JSON.stringify(this.selectBrands) } });
+    //var brand12 = this.filterBrandArr.join('|');
+    this.allProductDetails(1, this.selectBrands);
 
   }
 
+  details(productId: string, param2: string) {
+    this._route.navigate(['/details', productId]);
+  }
 
-
-  
 
 
 

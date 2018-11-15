@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   }
 
   menu(category:string) {   
-    this._route.navigate(['/home/products',category]);
+    //this._route.navigate(['/home/products',category]);
   }
 
   logout() {

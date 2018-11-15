@@ -16,6 +16,7 @@ export const IndexRoutes: Route[] = [
             { path: 'login', component: LoginComponent },            
             { path: 'signup', component: SignupComponent },
             { path: 'forgot', component: ForgotComponent },
+            { path: 'products/:categoryname', component: ProductsComponent },
             { path: 'details/:productid', component: DetailsComponent },
         ]
     }
