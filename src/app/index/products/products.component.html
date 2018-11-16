@@ -56,10 +56,14 @@
                 <div class="card-text">{{item.product_title}}</div>
                 <div class="mb-12"  style="text-align: center">
                   <div class="row">
-                    <div class="col-4">
-                      {{item.product_rating}}
+                    <div class="col">
+                        <span class="fa fa-star " [class.checked]="item.product_rating>=1"></span>
+                        <span class="fa fa-star " [class.checked]="item.product_rating>=2"></span>
+                        <span class="fa fa-star " [class.checked]="item.product_rating>=3"></span>
+                        <span class="fa fa-star" [class.checked]="item.product_rating>=4"></span>
+                        <span class="fa fa-star" [class.checked]="item.product_rating>=5"></span>                      
                     </div>
-                    <div class="col-8">
+                    <div class="col">
                       <strong> {{item.product_lowest_price | currency: 'INR':true}} </strong>
                     </div>
                   </div>
@@ -74,7 +78,7 @@
 
     </div>
     <span style="text-align: center;">
-      <pagination-controls (pageChange)="current_page = allProductDetails($event)" maxSize="8" directionLinks="true" autohide="true">
+      <pagination-controls (pageChange)="current_page = allProductDetails($event,selectBrands)" maxSize="8" directionLinks="true" autohide="true">
       </pagination-controls>
     </span>
 
