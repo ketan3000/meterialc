@@ -15,6 +15,7 @@ import { AuthInterceptor } from './_service/auth-interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
+
 @NgModule({
   declarations: [
     AppComponent,IndexComponent,HomeComponent,NoPageComponent

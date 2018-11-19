@@ -16,6 +16,7 @@ export class DetailsComponent implements OnInit {
   product_category: string;
   product_brand: string;
   product_images:string[];
+  product_image:string;
   stores:string[];
   available_colors:string[];
   product_ratings:string;  
@@ -28,9 +29,11 @@ export class DetailsComponent implements OnInit {
     });
 
     this.productServ.getPraductDetails(this.productID).subscribe(result=>{
-      console.log(result);
+      console.log(result.data.stores);
       this.product_name=result.data.product_name;
-      this.product_images=result.data.product_images;
+      this.product_images=result.data.product_images;      
+      this.product_image = result.data.product_image
+      this.stores = result.data.stores;
       this.product_mrp=result.data.product_mrp;
       this.product_ratings=result.data.product_ratings;
       this.available_colors=result.data.available_colors;
