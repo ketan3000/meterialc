@@ -31,6 +31,9 @@ export class DetailsComponent implements OnInit {
       console.log(result);
       this.product_name=result.data.product_name;
       this.product_images=result.data.product_images;
+      this.product_mrp=result.data.product_mrp;
+      this.product_ratings=result.data.product_ratings;
+      this.available_colors=result.data.available_colors;
     });
    }
 
