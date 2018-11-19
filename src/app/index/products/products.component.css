@@ -11,3 +11,20 @@ ul {
   .checked {
     color:#b68224;
 }
+
+
+
+span.thumbnail {
+    border: 1px solid #00c4ff !important;
+    /* border-radius: 0px !important; */
+    -webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.16);
+    -moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.16);
+    box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.16);
+    
+}
+
+.thumbnail:hover {
+    opacity: 30;
+    box-shadow: 2px 5px 16px 1px #9780de;
+
+}
