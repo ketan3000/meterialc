@@ -66,6 +66,7 @@ export interface interfaceProductDetails {
     product_category: string;
     product_brand: string;
     product_images: string[];
+    product_image: string;
     stores: string[];
     available_colors: string[];
     product_ratings: string;
