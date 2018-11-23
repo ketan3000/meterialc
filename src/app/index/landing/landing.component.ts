@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+declare var jquery:any;
+declare var $ :any;
 
 @Component({
   selector: 'app-landing',
@@ -7,7 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+
+    
+  }
+
+  toggleTitle(){
+    $('.title').slideToggle(); //
+  }
 
   ngOnInit() {
     document.body.classList.remove('bg-img');
