@@ -52,6 +52,14 @@ export class ProductsComponent implements OnInit, OnDestroy {
       .subscribe(result => {
         this.loading = false;
         this.data = result.data;
+
+       /*var xxxx =  result.data.reduce(function(results, value, index, array) {          
+          results.push(array.slice(index, index + 4));
+          return results;
+        }, []);*/
+        
+        
+
         this.current_page = page;
         this.total = result.meta.items;
         this.brand = result.meta.filters[1].brand;
