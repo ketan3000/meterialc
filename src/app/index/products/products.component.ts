@@ -53,10 +53,16 @@ export class ProductsComponent implements OnInit, OnDestroy {
         this.loading = false;
         this.data = result.data;
 
-       /*var xxxx =  result.data.reduce(function(results, value, index, array) {          
+       var xxxx =  result.data.reduce(function(results, value, index, array) { 
+        if (index % 4 == 0){
           results.push(array.slice(index, index + 4));
-          return results;
-        }, []);*/
+        }
+        return results;         
+         
+        }, []);
+
+        console.log(xxxx);
+        
         
         
 

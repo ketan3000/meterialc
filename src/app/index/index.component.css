@@ -29,7 +29,6 @@ li.nav-item.active {
     color: rgb(0, 0, 0) !important;
 }
 
-@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 section {
     padding: 60px 0;
 }
@@ -54,7 +53,6 @@ section .section-title {
     color: #ffffff;
     text-decoration: none !important;
     background-color: transparent;
-    -webkit-text-decoration-skip: objects;
 }
 #footer ul.social li{
 	padding: 3px 0;
