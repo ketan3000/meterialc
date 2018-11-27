@@ -1,12 +1,12 @@
 
-.mynewcarousel h2 {
-	
-	font-size: 26px;
+.mynewcarousel h2 {	
+	font-size: 20px;
 	font-weight: 300;
-	text-align: center;
+	text-align: left;
 	text-transform: uppercase;
 	position: relative;
-	margin: 30px 0 60px;
+	text-align: center;
+	
 }
 .mynewcarousel .carousel-item {
     height: unset;
@@ -14,19 +14,19 @@
 }
 .mynewcarousel h2::after {
 	content: "";
-	width: 100px;
-	position: absolute;
-	margin: 0 auto;
-	height: 4px;
-	border-radius: 1px;
-	background: #7ac400;
-	left: 0;
-	right: 0;
-	bottom: -20px;
+    width: 15%;
+    position: absolute;
+    margin: 0 auto;
+    height: 4px;
+    border-radius: 1px;
+    background: #7ac400;
+    left: 0;
+    right: 0;
+    bottom: -20px;
 }
 .mynewcarousel .carousel {
-	margin: 50px auto;
-	padding: 0 70px;
+	margin: 20px auto;
+	padding: 0 50px;
 }
 .mynewcarousel .carousel .item {
 	color: #747d89;
@@ -86,18 +86,7 @@
     font-weight: bold;
     margin-left: 5px;
 }
-.mynewcarousel .carousel .carousel-control {
-	height: 44px;
-	width: 40px;
-	background: #7ac400;	
-    margin: auto 0;
-    border-radius: 4px;
-	opacity: 0.8;
-}
-.mynewcarousel .carousel .carousel-control:hover {
-	background: #78bf00;
-	opacity: 1;
-}
+
 .mynewcarousel .carousel .carousel-control i {
     font-size: 36px;
     position: absolute;
@@ -152,6 +141,67 @@
 }
 .mynewcarousel .carousel .wish-icon .fa-heart {
 	color: #ff6161;
+}
+.mynewcarousel .star-rating li {
+	padding: 0;
+}
+.mynewcarousel .star-rating i {
+	font-size: 14px;
+	color: #ffc000;
+}
+.mynewcarousel .carousel .carousel-control {
+	height: 100px;
+    width: 40px;
+    background: none;
+    margin: auto 0;
+    background: rgba(0, 0, 0, 0.2);
+}
+.mynewcarousel .carousel .carousel-control i {
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    margin: -16px 0 0 0;
+    z-index: 5;
+    left: 0;
+    right: 0;
+    color: rgba(0, 0, 0, 0.8);
+    text-shadow: none;
+    font-weight: bold;
+}
+.mynewcarousel .carousel .item-price {
+	font-size: 13px;
+	padding: 2px 0;
+}
+.mynewcarousel .carousel .item-price strike {
+	color: #999;
+	margin-right: 5px;
+}
+.mynewcarousel .carousel .item-price span {
+	color: #86bd57;
+	font-size: 110%;
+}
+.mynewcarousel .carousel .carousel-control.left i {
+	margin-left: -3px;
+}
+.mynewcarousel .carousel .carousel-control.left i {
+	margin-right: -3px;
+}
+.mynewcarousel .carousel .carousel-indicators {
+	bottom: -50px;
+}
+.mynewcarousel .carousel-indicators li, .carousel-indicators li.active {
+	width: 10px;
+	height: 10px;
+	margin: 4px;
+	border-radius: 50%;
+	border-color: transparent;
+}
+.mynewcarousel .carousel-indicators li {	
+	background: rgba(0, 0, 0, 0.2);
+}
+.carousel-indicators li.active {	
+	background: rgba(0, 0, 0, 0.6);
 }
 .mynewcarousel .star-rating li {
 	padding: 0;

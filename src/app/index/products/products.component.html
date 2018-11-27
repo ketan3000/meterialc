@@ -2,7 +2,7 @@
 <!--{{selectBrands | json}} -->
 <div class="album py-6 bg-light">
   <div class="container">
-    <div class="row">
+    <div class="row leftmenu">
       <div class="col-lg-2">
         <div class="row">
           <section class="section_offset">
@@ -40,37 +40,48 @@
         </div>
       </div>
       <div class="col-lg-10">
-        <div class="row">
-          <div class="col-md-3" style="padding-right: 2px; padding-left: 2px;" *ngFor="let item of data | paginate : { itemsPerPage:50, currentPage:current_page, totalItems:total }">
+        <div class="row ">
+          <div class="col-md-3 item" *ngFor="let item of data | paginate : { itemsPerPage:50, currentPage:current_page, totalItems:total }">
+            <a class="navbar-brandlflgdlfgldl" (click)="details(item.product_id,item.product_link)">
+              <span class="card mb-3 thumb-wrapper thumbnail">
 
-            <span class="card mb-3 thumbnail">
-              <div style="max-height: 170px; min-height: 170px;    display: contents;">
-                <div style="text-align: center;height: 217px;">
-                  <a class="navbar-brandlflgdlfgldl" (click)="details(item.product_id,item.product_link)">
-                    <img class="card-img-top" style="max-width: 40%;padding-top: 10px;margin: 0 auto;" src={{item.product_image}}
-                      data-holder-rendered="true">
-                  </a>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="card-text">{{item.product_title}}</div>
-                <div class="mb-12"  style="text-align: center">
-                  <div class="row">
-                    <div class="col">
-                        <span class="fa fa-star " [class.checked]="item.product_rating>=1"></span>
-                        <span class="fa fa-star " [class.checked]="item.product_rating>=2"></span>
-                        <span class="fa fa-star " [class.checked]="item.product_rating>=3"></span>
-                        <span class="fa fa-star" [class.checked]="item.product_rating>=4"></span>
-                        <span class="fa fa-star" [class.checked]="item.product_rating>=5"></span>                      
-                    </div>
-                    <div class="col">
-                      <strong> {{item.product_lowest_price | currency: 'INR':true}} </strong>
-                    </div>
+                <div>
+
+                  <div class="img-box">
+                    <img class="img-responsive img-fluid" src={{item.product_image}} data-holder-rendered="true">
                   </div>
-                </div>
-              </div>
-            </span>
 
+                </div>
+
+                <div class="thumb-content">
+                  <h4>{{item.product_title}}</h4>
+                  <p class="item-price">
+                    <span>{{item.product_lowest_price | currency: 'INR':true}}</span>
+                  </p>
+                  <div class="star-rating">
+
+                    <ul class="list-inline">
+                      <li class="list-inline-item">
+                        <i class="fa" [class.fa-star]="item.product_rating>=1"></i>
+                      </li>
+                      <li class="list-inline-item">
+                        <i class="fa" [class.fa-star]="item.product_rating>=2"></i>
+                      </li>
+                      <li class="list-inline-item">
+                        <i class="fa" [class.fa-star]="item.product_rating>=3"></i>
+                      </li>
+                      <li class="list-inline-item">
+                        <i class="fa" [class.fa-star]="item.product_rating>=4"></i>
+                      </li>
+                      <li class="list-inline-item">
+                        <i class="fa" [class.fa-star]="item.product_rating>=5"></i>
+                      </li>
+                    </ul>
+                  </div>
+
+                </div>
+              </span>
+            </a>
           </div>
         </div>
       </div>
@@ -78,7 +89,8 @@
 
     </div>
     <span style="text-align: center;">
-      <pagination-controls (pageChange)="current_page = allProductDetails($event,selectBrands)" maxSize="8" directionLinks="true" autohide="true">
+      <pagination-controls (pageChange)="current_page = allProductDetails($event,selectBrands)" maxSize="8" directionLinks="true"
+        autohide="true">
       </pagination-controls>
     </span>
 

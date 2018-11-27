@@ -5,12 +5,12 @@
         <!--https://bootsnipp.com/snippets/featured/ecommerce-product-detail-->
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
-           <span *ngIf="product_image">            
-              <img class="first-slide" src="{{ product_image }}" alt="First slide">            
+           <span class="img-box" *ngIf="product_image">            
+              <img class="img-responsive img-fluid" src="{{ product_image }}" alt="First slide">            
            </span>
-           <span *ngIf="product_images"> 
+           <span class="img-box" *ngIf="product_images"> 
             <div class="carousel-item" *ngFor="let item of product_images; let rowIndex=index" [class.active]="rowIndex==0">
-              <img class="first-slide" src="{{item}}" alt="First slide">
+              <img  class="img-responsive img-fluid" src="{{item}}" alt="First slide">
             </div>
             </span>
 
@@ -62,7 +62,7 @@
     </div>
   </div>
 </div>
-{{ stores|json }}
+<!--{{ stores|json }}-->
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
