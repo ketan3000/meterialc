@@ -3,7 +3,7 @@
 }
 
 .navbar-nav .nav-link{
-    font-size: 13px !important;
+    font-size: 15px !important;
 }
 a.nav-link.active {
     font-weight: bold !important;
@@ -17,7 +17,12 @@ a.nav-link.active {
 
 .dropdown-item {
     
-    font-size: 13px !important;
+    font-size: 15px !important;
+    font-family: initial;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0, 0, 0, 0.78);
 }
 
 li.nav-item.active {

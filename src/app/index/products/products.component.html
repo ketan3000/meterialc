@@ -14,8 +14,8 @@
                   <ul class="checkboxes_list">
                     <li *ngFor="let brands of brand ; index as i">
                       <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" [checked]="selectBrands.indexOf(brands.filter) >= 0" name="brand" (click)="selectBrand(brands, $event)"
-                          id="customCheck{{i}}">
+                        <input type="checkbox" class="custom-control-input" [checked]="selectBrands.indexOf(brands.filter) >= 0"
+                          name="brand" (click)="selectBrand(brands, $event)" id="customCheck{{i}}">
                         <label class="custom-control-label" for="customCheck{{i}}">{{brands.name}}</label>
                       </div>
 
@@ -41,7 +41,7 @@
       </div>
       <div class="col-lg-10">
         <div class="row ">
-          <div class="col-md-3 item" *ngFor="let item of data | paginate : { itemsPerPage:50, currentPage:current_page, totalItems:total }">
+          <div class="col-lg-3 col-md-3 col-sm-4 item" *ngFor="let item of data | paginate : { itemsPerPage:50, currentPage:current_page, totalItems:total }">
             <a class="navbar-brandlflgdlfgldl" (click)="details(item.product_id,item.product_link)">
               <span class="card mb-3 thumb-wrapper thumbnail">
 
@@ -89,8 +89,8 @@
 
     </div>
     <span style="text-align: center;">
-      <pagination-controls (pageChange)="current_page = allProductDetails($event,selectBrands)" maxSize="8" directionLinks="true"
-        autohide="true">
+      <pagination-controls (pageChange)="current_page = allProductDetails($event,selectBrands)" maxSize="8"
+        directionLinks="true" autohide="true">
       </pagination-controls>
     </span>
 
