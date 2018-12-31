@@ -52,7 +52,6 @@ export interface interfaceProductCat {
   meta: {
     items: number;
     filters: {
-
       brand: string[];
       category: string[];
     }

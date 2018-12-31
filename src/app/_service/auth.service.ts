@@ -25,7 +25,7 @@ export class AuthService {
         'No-Auth': 'True'
       })
     }
-    return this._http.post<iflogin>(appConfig.apiUrl + "login", fromdata,loginHeaders);
+    return this._http.post<iflogin>(appConfig.apiUrl + "loginerer", fromdata,loginHeaders);
   }
 
   isValidTokenPage(){

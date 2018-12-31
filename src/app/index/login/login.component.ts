@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AuthService } from '../../_service/auth.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
- // encapsulation: ViewEncapsulation.None,
+  // encapsulation: ViewEncapsulation.None,
 })
 export class LoginComponent implements OnInit {
   public loading = false;
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   signIn(formData) {
-    this.loading = true;    
+    this.loading = true;
     this.authservice.login(formData.value)
       .subscribe(myvalue => {
         console.log(myvalue);
@@ -34,16 +34,17 @@ export class LoginComponent implements OnInit {
           this.toastrService.error(myvalue.message);
         }
       },
-        (err) => {
+       /* (err) => {
+         
+          
           this.loading = false;
-          this.toastrService.error(err.statusText);
-          console.log(err)
-          console.log(err.statusText)
-        }
+          this.toastrService.error(err.message);
+          
+        }*/
       );
   }
 
- 
+
 
 }
 

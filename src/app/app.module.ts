@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AppComponent } from './app.component';
@@ -14,6 +14,7 @@ import { AuthInterceptor } from './_service/auth-interceptor';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { CustomErrorHandlerService } from './_service/custom-error-handler.service';
 
 
 @NgModule({
@@ -31,6 +32,9 @@ import { ToastrModule } from 'ngx-toastr';
     provide : HTTP_INTERCEPTORS,
     useClass : AuthInterceptor,
     multi : true
+  },{
+    provide:ErrorHandler,
+    useClass:CustomErrorHandlerService
   }],
   bootstrap: [AppComponent]
 })
